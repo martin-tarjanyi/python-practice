@@ -19,11 +19,6 @@ async def query_posts():
     for response in responses:
         print(response)
 
-
-def async_http_main():
-    asyncio.run(query_posts())
-
-
 if __name__ == '__main__':
-    async_http_main()
+    asyncio.run(query_posts())
 

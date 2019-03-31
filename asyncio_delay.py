@@ -27,7 +27,11 @@ def async_io_delay_main():
 
     tasks: List[Coroutine] = [printer(n) for n in range(5).__reversed__()]
     tasks_future = asyncio.gather(*tasks)
-    asyncio.run(tasks_future)
+    asyncio.get_event_loop().run_until_complete(tasks_future)
     time_spent: float = (time.time() - start)
 
     print(f"Took {time_spent} seconds to complete.")
+
+
+if __name__ == '__main__':
+    async_io_delay_main()
