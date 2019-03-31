@@ -1,12 +1,10 @@
 import requests
 
-
 a = "hello"
 print(f'type: {type(a)} value: {a}')  # string interpolation, before string there is a f
 
 a = 5  # dynamic typing
 print(f'type: {type(a)} value: {a}')
-
 
 integerDivision = 17 / 3  # integer division
 print(f'Simple division result: {integerDivision}')
@@ -27,8 +25,6 @@ print("25 celsius to fahrenheit: " + celsius)
 # named parameters
 print("25 celsius to fahrenheit: " + str(celsius_to_fahrenheit(celsius=25)))
 
-
-
 if celsius != 77:
     print("String and int can be compared but never equal.")
 
@@ -42,13 +38,10 @@ else:
 if True:
     pass  # does nothing
 
-
-
 list = ["1", "2", "3", "4"]
 
 for item in list:
     print(f'list item: {item}')
-
 
 try:
     5 / 0
@@ -66,3 +59,7 @@ result = requests.get(url="https://jsonplaceholder.typicode.com/todos/1")
 content = result.json()
 
 print(content)
+
+list_of_lists = [[1, 2], [3, 4, 5], [6, 7, 8]]
+flatten = [item for sublist in list_of_lists if len(sublist) > 2 for item in sublist]
+print(flatten)

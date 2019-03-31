@@ -14,8 +14,8 @@ async def execute_http_call(url: str):
 async def query_posts():
     posts: list = await execute_http_call("https://my-json-server.typicode.com/typicode/demo/posts")
     post_ids = (post["id"] for post in posts)
-    urls = (f"https://my-json-server.typicode.com/typicode/demo/posts/{str(post_id)}" for post_id in post_ids)
-    responses = await asyncio.gather(*(execute_http_call(url) for url in urls))
+    urls = [f"https://my-json-server.typicode.com/typicode/demo/posts/{str(post_id)}" for post_id in post_ids]
+    responses = await asyncio.gather(*[execute_http_call(url) for url in urls])
     for response in responses:
         print(response)
 
